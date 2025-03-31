@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+enum Role {
+  VISITOR
+  USER
+  ADMIN
+  DEVELOPER
+}
+
+model User {
+  id                String             @id @default(uuid())
+  email             String             @unique
+  password          String
+  role              Role               @default(USER)
+  emailVerification EmailVerification?
+  createdEvents     Event[]            @relation("createdEvents")
+  receivedEvents    Event[]            @relation("receivedEvents")
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime?          @updatedAt
+}
+
+model EmailVerification {
+  id           String    @id @default(uuid())
+  uniqueString String    @unique
+  userId       String    @unique
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt    DateTime
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @updatedAt
+}
+
+model ContactForm {
+  id           String    @id @default(uuid())
+  firstName    String
+  lastName     String
+  email        String
+  message      String
+  phoneNumber  String
+  location     String
+  businessName String
+  projectType  String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @updatedAt
+}
+
+model CallbackForm {
+  id          String    @id @default(uuid())
+  fullName    String
+  phoneNumber String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+}
+
+// EVENTS
+enum EventType {
+  ERROR
+  USER
+  ADMIN
+  VISITOR
+  DEVELOPER
+  TEST
+}
+
+model Event {
+  id           String    @id @default(uuid())
+  type         EventType
+  topic        String?
+  code         Int?
+  content      String?
+  createdBy    User?     @relation("createdEvents", fields: [createdById], references: [id], onDelete: Cascade)
+  createdById  String?
+  receivedBy   User?     @relation("receivedEvents", fields: [receivedById], references: [id], onDelete: Cascade)
+  receivedById String?
+  viewed       Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @updatedAt
+}

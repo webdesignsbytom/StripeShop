@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.client.com/</loc>
+    <lastmod>2024-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Login Page -->
+  <url>
+    <loc>https://www.client.com/login</loc>
+    <lastmod>2024-06-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Register Page -->
+  <url>
+    <loc>https://www.client.com/sign-up</loc>
+    <lastmod>2024-06-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://www.client.com/contact</loc>
+    <lastmod>2024-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Reset Password Page -->
+  <url>
+    <loc>https://www.client.com/reset-password</loc>
+    <lastmod>2024-06-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Policies Page -->
+  <url>
+    <loc>https://www.client.com/user-agreements</loc>
+    <lastmod>2024-06-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Admin Page -->
+  <url>
+    <loc>https://www.client.com/admin</loc>
+    <lastmod>2024-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Maintenance Page -->
+  <url>
+    <loc>https://www.client.com/down-for-maintenance</loc>
+    <lastmod>2024-06-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.4</priority>
+  </url>
+</urlset>

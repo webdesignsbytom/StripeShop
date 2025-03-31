@@ -1,0 +1,31 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build]
+  publish = "build"              # Directory to deploy (e.g., for React it's usually 'build')
+  command = "npm run build"      # Build command (depends on your framework)
+  environment = { NODE_VERSION = "18.20.4" } # Optional: Node version
+
+[functions]
+  directory = "netlify/functions" # Directory for serverless functions (if used)
+
+[dev]
+  framework = "react"            # Specifies framework (e.g., "react", "next.js")
+
+[[redirects]]
+  from = "/old-path"
+  to = "/new-path"
+  status = 301                   # Status code for redirects
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://api.example.com/:splat"
+  status = 200                   # Proxy requests to an external API
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
