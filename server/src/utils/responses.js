@@ -23,6 +23,9 @@ export const EVENT_MESSAGES = {
   eventTag: `Event database.`,
   eventNotFound: `Failed to find event.`,
   createEventFail: `Failed to create event.`,
+  // Products
+  productTag: `Product database.`,
+  productListNotFound: `Failed to find product list.`,
   // Users
   userTag: `User database.`,
   userNotFound: `Failed to find user(s).`,

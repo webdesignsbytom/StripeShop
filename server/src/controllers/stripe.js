@@ -43,3 +43,34 @@ export const createCheckoutSessionHandler = async (req, res) => {
     throw err;
   }
 };
+
+export const getAllProductsHandler = async (req, res) => {
+  const { priceId } = req.body;
+  console.log('priceId', priceId);
+  try {
+    const productsFound = await stripe.products.list({
+      limit: 100, // Adjust the limit if needed
+    });
+
+    if (!productsFound) {
+      const notFound = new NotFoundEvent(
+        req.user,
+        EVENT_MESSAGES.notFound,
+        EVENT_MESSAGES.productListNotFound
+      );
+      myEmitterErrors.emit('error', notFound);
+      return sendMessageResponse(res, notFound.code, notFound.message);
+    }
+
+    console.log('SUCCESS');
+    return sendDataResponse(res, 200, { pruductList: productsFound });
+  } catch (err) {
+    const serverError = new ServerErrorEvent(
+      req.user,
+      'Get product list failed'
+    );
+    myEmitterErrors.emit('error', serverError);
+    sendMessageResponse(res, serverError.code, serverError.message);
+    throw err;
+  }
+};
