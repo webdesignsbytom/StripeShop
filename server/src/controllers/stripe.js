@@ -63,7 +63,7 @@ export const getAllProductsHandler = async (req, res) => {
     }
 
     console.log('SUCCESS');
-    return sendDataResponse(res, 200, { pruductList: productsFound });
+    return sendDataResponse(res, 200, { productList: productsFound });
   } catch (err) {
     const serverError = new ServerErrorEvent(
       req.user,

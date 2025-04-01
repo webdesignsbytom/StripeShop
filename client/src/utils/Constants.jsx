@@ -47,6 +47,9 @@ export const EDIT_BLOG_POST_PAGE_URL = '/blog/edit/postId';
 export const GET_BLOG_POSTS_API = '/blog/get-all-blog-posts';
 export const GET_BLOG_POST_BY_TITLE_API = '/blog/get-all-blog-posts';
 
+// Products
+export const GET_PRODUCT_ARRAY_API = '/stripe/get-products';
+
 // URL
 export const FULL_BUSINESS_URL = 'https://www.bytetoast-studio.co.uk';
 export const SHORT_BUSINESS_URL = 'bytetoast-studio.co.uk';
