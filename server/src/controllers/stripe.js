@@ -9,7 +9,7 @@ import {
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const YOUR_DOMAIN = 'http://localhost:3000';
+const YOUR_DOMAIN = process.env.STRIPE_FRONT_END;
 
 export const createCheckoutSessionHandler = async (req, res) => {
   const { priceId } = req.body;
