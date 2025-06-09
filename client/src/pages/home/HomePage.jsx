@@ -10,6 +10,7 @@ import HomePageMainContainer from '../../components/home/HomePageMainContainer';
 const HomePage = React.memo(() => {
   const [productArray, setProductArray] = useState([]);
   console.log('productArray');
+  
   useEffect(() => {
     client
       .get(`${GET_PRODUCT_ARRAY_API}`)
